@@ -14,7 +14,7 @@
       property="og:description"
       content="Jueves 16 de julio de 2026, 3:00 p. m., Edificio de Docencia 2."
     />
-    <meta property="og:image" content="./assets/baby-shower-hero.webp" />
+    <meta property="og:image" content="./assets/baby-shower-osos.webp" />
     <link rel="preload" href="./assets/baby-shower-hero.webp" as="image" type="image/webp" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -26,6 +26,8 @@
         <div class="nav__links">
           <a href="#detalles">Detalles</a>
           <a href="#mensaje">Mensaje</a>
+          <a href="#musica">Música</a>
+          <a href="#descargar">Descargar</a>
           <a href="#calendario">Calendario</a>
         </div>
       </nav>
@@ -42,6 +44,9 @@
           <a class="button button--ghost" href="./assets/baby-shower-upfim.ics" download>
             Agregar al calendario
           </a>
+          <button class="button button--ghost" type="button" id="musicToggle">
+            Escuchar canción
+          </button>
         </div>
       </div>
     </header>
@@ -58,10 +63,10 @@
         </div>
         <figure class="intro__image">
           <img
-            src="./assets/papas-elefantes.webp"
-            alt="Papá y mamá elefante esperando a Dulce Abigail"
+            src="./assets/baby-shower-osos_d.png"
+            alt="Decoración de baby shower con osos de peluche"
             width="1400"
-            height="933"
+            height="700"
             loading="lazy"
           />
         </figure>
@@ -92,6 +97,34 @@
         </div>
       </section>
 
+      <section class="music" id="musica" aria-labelledby="music-title">
+        <div class="music__inner">
+          <div>
+            <p class="kicker">Una canción especial</p>
+            <h2 id="music-title">Para acompañar la invitación</h2>
+            <p>
+              La melodía queda integrada para darle un toque cálido a este
+              momento.
+            </p>
+          </div>
+          <div class="player">
+            <button class="player__button" type="button" id="playerButton">
+              Reproducir
+            </button>
+            <div class="player__track" aria-hidden="true">
+              <span></span>
+            </div>
+            <audio
+              id="song"
+              preload="auto"
+              autoplay
+              playsinline
+              src="./assets/cancion.mp3"
+            ></audio>
+          </div>
+        </div>
+      </section>
+
       <section class="schedule" id="calendario">
         <div class="schedule__panel">
           <div>
@@ -107,10 +140,44 @@
           </a>
         </div>
       </section>
+
+      <section class="download" id="descargar" aria-labelledby="download-title">
+        <div class="download__inner">
+          <div class="download__copy">
+            <p class="kicker">Para compartir</p>
+            <h2 id="download-title">Descarga la invitación</h2>
+            <p>
+              Guarda una imagen en formato PNG lista para enviar o compartir.
+            </p>
+            <a
+              class="button button--primary"
+              href="./assets/invitacion-baby-upfim.png"
+              download="invitacion-baby-upfim.png"
+            >
+              Descargar PNG
+            </a>
+          </div>
+          <a
+            class="invitation-preview"
+            href="./assets/invitacion-baby-upfim.png"
+            download="invitacion-baby-upfim.png"
+            aria-label="Descargar invitación en PNG"
+          >
+            <img
+              src="./assets/invitacion-baby-upfim.png"
+              alt="Invitación descargable del baby shower de Dulce Abigail"
+              width="1080"
+              height="1350"
+              loading="lazy"
+            />
+          </a>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
       <p>Con cariño, gracias por acompañarnos en la espera de Dulce Abigail.</p>
     </footer>
+    <script src="./script.js"></script>
   </body>
 </html>

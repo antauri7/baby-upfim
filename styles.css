@@ -193,6 +193,7 @@ h1 {
 
 .intro,
 .details,
+.music,
 .schedule {
   padding: 92px 20px;
 }
@@ -208,7 +209,9 @@ h1 {
 
 .intro__text h2,
 .section-heading h2,
-.schedule h2 {
+.music h2,
+.schedule h2,
+.download h2 {
   margin-bottom: 16px;
   color: var(--plum);
   font-size: 3.4rem;
@@ -217,7 +220,9 @@ h1 {
 .intro__text p,
 .section-heading p,
 .detail-card p,
+.music p,
 .schedule p,
+.download p,
 .footer p {
   color: var(--muted);
   font-size: 1.05rem;
@@ -282,6 +287,60 @@ h1 {
   background: var(--paper);
 }
 
+.music {
+  background: var(--paper);
+}
+
+.music__inner {
+  display: grid;
+  width: min(1120px, 100%);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: 36px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.player {
+  display: grid;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow);
+}
+
+.player__button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 22px;
+  color: #fffdf9;
+  background: var(--plum);
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.player__track {
+  position: relative;
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(111, 139, 118, 0.18);
+}
+
+.player__track span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: var(--progress, 0%);
+  border-radius: inherit;
+  background: var(--sage);
+}
+
 .schedule__panel {
   display: grid;
   width: min(960px, 100%);
@@ -304,6 +363,38 @@ h1 {
   padding: 28px 20px;
   text-align: center;
   background: var(--cream);
+}
+
+.download {
+  padding: 92px 20px;
+  background: var(--cream);
+}
+
+.download__inner {
+  display: grid;
+  width: min(1120px, 100%);
+  grid-template-columns: minmax(0, 0.75fr) minmax(280px, 420px);
+  gap: 38px;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.download__copy {
+  max-width: 620px;
+}
+
+.invitation-preview {
+  display: block;
+  text-decoration: none;
+}
+
+.invitation-preview img {
+  width: 100%;
+  max-height: 640px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: var(--cream);
+  box-shadow: var(--shadow);
 }
 
 .footer p {
@@ -338,19 +429,25 @@ h1 {
 
   .intro,
   .details,
+  .music,
+  .download,
   .schedule {
     padding: 76px 20px;
   }
 
   .intro,
   .detail-grid,
+  .music__inner,
+  .download__inner,
   .schedule__panel {
     grid-template-columns: 1fr;
   }
 
   .intro__text h2,
   .section-heading h2,
-  .schedule h2 {
+  .music h2,
+  .schedule h2,
+  .download h2 {
     font-size: 2.55rem;
   }
 
@@ -365,7 +462,8 @@ h1 {
 
 @media (max-width: 520px) {
   .hero__actions,
-  .button {
+  .button,
+  .player__button {
     width: 100%;
   }
 
@@ -375,17 +473,22 @@ h1 {
 
   .intro,
   .details,
+  .music,
+  .download,
   .schedule {
     padding: 64px 16px;
   }
 
   .intro__text h2,
   .section-heading h2,
-  .schedule h2 {
+  .music h2,
+  .schedule h2,
+  .download h2 {
     font-size: 2.15rem;
   }
 
   .detail-card,
+  .player,
   .schedule__panel {
     padding: 24px;
   }
