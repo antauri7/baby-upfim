@@ -6,10 +6,10 @@ METHOD:PUBLISH
 BEGIN:VEVENT
 UID:dulce-abigail-baby-shower-upfim-20260716@baby-upfim.local
 DTSTAMP:20260628T000000Z
-DTSTART;TZID=America/Mexico_City:20260716T150000
-DTEND;TZID=America/Mexico_City:20260716T170000
+DTSTART;TZID=America/Mexico_City:20260716T100000
+DTEND;TZID=America/Mexico_City:20260716T120000
 SUMMARY:Baby Shower de Dulce Abigail
 LOCATION:Edificio de Docencia 2, planta alta, Sala de Ex Rectores
-DESCRIPTION:Invitacion al baby shower de Dulce Abigail. Jueves 16 de julio de 2026 a las 3:00 p. m. Lugar: Edificio de Docencia 2, planta alta, Sala de Ex Rectores.
+DESCRIPTION:Invitacion al baby shower de Dulce Abigail. Jueves 16 de julio de 2026 a las 10:00 a. m. Lugar: Edificio de Docencia 2, planta alta, Sala de Ex Rectores.
 END:VEVENT
 END:VCALENDAR
