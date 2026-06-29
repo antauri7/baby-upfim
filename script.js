@@ -3,6 +3,7 @@ const heroMusicButton = document.querySelector("#musicToggle");
 const playerButton = document.querySelector("#playerButton");
 const playerTrack = document.querySelector(".player__track");
 let unlockArmed = false;
+let autoplayAttempted = false;
 
 function setButtons(isPlaying) {
   const heroLabel = isPlaying ? "Pausar canción" : "Escuchar canción";
@@ -13,6 +14,7 @@ function setButtons(isPlaying) {
 
 async function startMusic() {
   try {
+    song.muted = false;
     song.volume = 0.82;
     await song.play();
     setButtons(true);
@@ -33,11 +35,11 @@ function armGestureStart() {
 
   const unlock = async (event) => {
     const target = event.target;
-    const isControl =
+    const isMusicControl =
       target instanceof Element &&
-      target.closest("#musicToggle, #playerButton, a");
+      target.closest("#musicToggle, #playerButton");
 
-    if (isControl) {
+    if (isMusicControl) {
       return;
     }
 
@@ -78,8 +80,21 @@ song.addEventListener("pause", () => setButtons(false));
 song.addEventListener("ended", () => setButtons(false));
 song.addEventListener("timeupdate", updateProgress);
 
-startMusic().then((started) => {
-  if (!started) {
-    armGestureStart();
+function tryAutoplay() {
+  if (autoplayAttempted) {
+    return;
   }
-});
+
+  autoplayAttempted = true;
+  song.load();
+  startMusic().then((started) => {
+    if (!started) {
+      armGestureStart();
+    }
+  });
+}
+
+window.addEventListener("pageshow", tryAutoplay, { once: true });
+window.addEventListener("load", tryAutoplay, { once: true });
+
+tryAutoplay();
